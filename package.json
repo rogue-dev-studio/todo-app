@@ -1,0 +1,45 @@
+{
+  "name": "todo-list-app",
+  "version": "1.0.0",
+  "description": "Aplikasi Todo List sederhana dan modern yang dibuat dengan HTML, CSS, dan JavaScript",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx http-server -p 8080 -o",
+    "dev": "npx live-server --port=8080 --open=/",
+    "build": "echo 'No build process needed - static files only'",
+    "deploy": "echo 'Deploy to GitHub Pages: git push origin main'",
+    "test": "echo 'No tests specified'"
+  },
+  "keywords": [
+    "todo-list",
+    "task-manager",
+    "pwa",
+    "web-app",
+    "javascript",
+    "html5",
+    "css3",
+    "productivity"
+  ],
+  "author": "Your Name <your-email@example.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/todo-app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-username/todo-app/issues"
+  },
+  "homepage": "https://your-username.github.io/todo-app",
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "live-server": "^1.2.2"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}

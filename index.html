@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📝 Todo List App</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#FF6B6B">
+    <meta name="description" content="Aplikasi Todo List sederhana dan modern untuk mengelola tugas harian">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="title">
+                <span class="emoji">📝</span>
+                Todo List App
+            </h1>
+            <p class="subtitle">Kelola tugas harian Anda dengan mudah</p>
+        </header>
+
+        <!-- Input Section -->
+        <div class="input-section">
+            <div class="input-group">
+                <input 
+                    type="text" 
+                    id="todoInput" 
+                    placeholder="Masukkan tugas baru..." 
+                    class="todo-input"
+                    maxlength="100"
+                >
+                <button id="addBtn" class="add-btn">
+                    <span class="btn-text">Tambah</span>
+                    <span class="btn-icon">+</span>
+                </button>
+            </div>
+            <div class="input-info">
+                <span id="charCount">0/100</span>
+            </div>
+        </div>
+
+        <!-- Filter Section -->
+        <div class="filter-section">
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">
+                    <span class="filter-icon">📋</span>
+                    Semua
+                </button>
+                <button class="filter-btn" data-filter="active">
+                    <span class="filter-icon">⏳</span>
+                    Aktif
+                </button>
+                <button class="filter-btn" data-filter="completed">
+                    <span class="filter-icon">✅</span>
+                    Selesai
+                </button>
+            </div>
+            <div class="stats">
+                <span id="totalTasks">0</span> total,
+                <span id="completedTasks">0</span> selesai
+            </div>
+        </div>
+
+        <!-- Statistics Sidebar Toggle -->
+        <div class="stats-toggle-container">
+            <button id="statsToggle" class="stats-toggle-btn">
+                <span class="toggle-icon">📊</span>
+                <span class="toggle-text">Statistik</span>
+            </button>
+        </div>
+
+        <!-- Statistics Sidebar -->
+        <div class="statistics-sidebar" id="statisticsSidebar">
+            <div class="sidebar-header">
+                <h3>📊 Statistik Tugas</h3>
+                <button id="closeStats" class="close-stats-btn">
+                    <span>✕</span>
+                </button>
+            </div>
+            
+            <div class="sidebar-content">
+                <div class="stats-actions">
+                    <button id="exportStats" class="export-stats-btn">
+                        <span class="export-icon">📈</span>
+                        Export Statistik
+                    </button>
+                </div>
+                
+                <div class="stats-grid">
+                    <!-- Progress Chart -->
+                    <div class="stats-card">
+                        <div class="stats-card-header">
+                            <h4>Progress Keseluruhan</h4>
+                            <span class="progress-percentage" id="progressPercentage">0%</span>
+                        </div>
+                        <div class="progress-container">
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="progressFill"></div>
+                            </div>
+                        </div>
+                        <div class="progress-details">
+                            <div class="progress-item">
+                                <span class="progress-label">Selesai:</span>
+                                <span class="progress-value" id="completedCount">0</span>
+                            </div>
+                            <div class="progress-item">
+                                <span class="progress-label">Belum Selesai:</span>
+                                <span class="progress-value" id="activeCount">0</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pie Chart -->
+                    <div class="stats-card">
+                        <div class="stats-card-header">
+                            <h4>Distribusi Status</h4>
+                        </div>
+                        <div class="pie-chart-container">
+                            <canvas id="pieChart" width="150" height="150"></canvas>
+                            <div class="pie-chart-legend">
+                                <div class="legend-item">
+                                    <span class="legend-color completed-color"></span>
+                                    <span class="legend-text">Selesai</span>
+                                    <span class="legend-percentage" id="completedPercent">0%</span>
+                                </div>
+                                <div class="legend-item">
+                                    <span class="legend-color active-color"></span>
+                                    <span class="legend-text">Aktif</span>
+                                    <span class="legend-percentage" id="activePercent">0%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Daily Stats -->
+                    <div class="stats-card">
+                        <div class="stats-card-header">
+                            <h4>Statistik Harian</h4>
+                        </div>
+                        <div class="daily-stats">
+                            <div class="daily-stat-item">
+                                <div class="daily-stat-icon">📅</div>
+                                <div class="daily-stat-info">
+                                    <span class="daily-stat-label">Hari Ini</span>
+                                    <span class="daily-stat-value" id="todayTasks">0</span>
+                                </div>
+                            </div>
+                            <div class="daily-stat-item">
+                                <div class="daily-stat-icon">✅</div>
+                                <div class="daily-stat-info">
+                                    <span class="daily-stat-label">Selesai Hari Ini</span>
+                                    <span class="daily-stat-value" id="todayCompleted">0</span>
+                                </div>
+                            </div>
+                            <div class="daily-stat-item">
+                                <div class="daily-stat-icon">📈</div>
+                                <div class="daily-stat-info">
+                                    <span class="daily-stat-label">Rata-rata per Hari</span>
+                                    <span class="daily-stat-value" id="avgPerDay">0</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Productivity Score -->
+                    <div class="stats-card">
+                        <div class="stats-card-header">
+                            <h4>Skor Produktivitas</h4>
+                        </div>
+                        <div class="productivity-score">
+                            <div class="score-circle">
+                                <div class="score-number" id="productivityScore">0</div>
+                                <div class="score-label">/ 100</div>
+                            </div>
+                            <div class="score-description" id="scoreDescription">
+                                Mulai tambahkan tugas untuk melihat skor produktivitas Anda!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar Overlay -->
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+        <!-- Table Controls -->
+        <div class="table-controls">
+            <div class="items-per-page">
+                <label for="itemsPerPage">Tampilkan:</label>
+                <select id="itemsPerPage" class="items-select">
+                    <option value="5">5</option>
+                    <option value="10" selected>10</option>
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                </select>
+                <span>item per halaman</span>
+            </div>
+            <div class="view-toggle">
+                <button id="listViewBtn" class="view-btn active" data-view="list">
+                    <span class="view-icon">📋</span>
+                    List
+                </button>
+                <button id="tableViewBtn" class="view-btn" data-view="table">
+                    <span class="view-icon">📊</span>
+                    Table
+                </button>
+            </div>
+        </div>
+
+        <!-- Todo List View -->
+        <div id="listView" class="todo-list-container">
+            <ul id="todoList" class="todo-list">
+                <!-- Todo items will be added here -->
+            </ul>
+            
+            <!-- Empty State -->
+            <div id="emptyState" class="empty-state">
+                <div class="empty-icon">📝</div>
+                <h3>Tidak ada tugas</h3>
+                <p>Tambahkan tugas pertama Anda untuk memulai!</p>
+            </div>
+        </div>
+
+        <!-- Todo Table View -->
+        <div id="tableView" class="todo-table-container" style="display: none;">
+            <div class="table-wrapper">
+                <table class="todo-table">
+                    <thead>
+                        <tr>
+                            <th class="th-checkbox">
+                                <input type="checkbox" id="selectAll" class="select-all-checkbox">
+                            </th>
+                            <th class="th-number">No</th>
+                            <th class="th-task">Tugas</th>
+                            <th class="th-status">Status</th>
+                            <th class="th-date">Tanggal Dibuat</th>
+                            <th class="th-actions">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody id="todoTableBody">
+                        <!-- Table rows will be added here -->
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Table Empty State -->
+            <div id="tableEmptyState" class="empty-state" style="display: none;">
+                <div class="empty-icon">📊</div>
+                <h3>Tidak ada data</h3>
+                <p>Tambahkan tugas untuk melihat tabel!</p>
+            </div>
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination-container">
+            <div class="pagination-info">
+                <span id="paginationInfo">Menampilkan 0 dari 0 item</span>
+            </div>
+            <div class="pagination-controls">
+                <button id="firstPage" class="pagination-btn" disabled>
+                    <span>⏮️</span>
+                </button>
+                <button id="prevPage" class="pagination-btn" disabled>
+                    <span>◀️</span>
+                </button>
+                <div class="page-numbers" id="pageNumbers">
+                    <!-- Page numbers will be added here -->
+                </div>
+                <button id="nextPage" class="pagination-btn" disabled>
+                    <span>▶️</span>
+                </button>
+                <button id="lastPage" class="pagination-btn" disabled>
+                    <span>⏭️</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Actions Section -->
+        <div class="actions-section">
+            <button id="exportExcel" class="action-btn success">
+                <span class="action-icon">📊</span>
+                Export Excel
+            </button>
+            <button id="clearCompleted" class="action-btn secondary">
+                <span class="action-icon">🗑️</span>
+                Hapus Selesai
+            </button>
+            <button id="clearAll" class="action-btn danger">
+                <span class="action-icon">🗑️</span>
+                Hapus Semua
+            </button>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-main">
+                    <p>Dibuat dengan ❤️ menggunakan HTML, CSS, dan JavaScript</p>
+                    <div class="footer-credits">
+                        <p>Powered by <a href="https://omeans-team.github.io" target="_blank" class="omeans-link">OMEANS Team</a></p>
+                        <p>Developed by <a href="https://omeans-team.github.io" target="_blank" class="developer-link">Aris Hadisopiyan</a></p>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <a href="#" id="shareButton" class="footer-link">Bagikan</a>
+                    <a href="#" id="exportButton" class="footer-link">Ekspor</a>
+                    <a href="#" id="importButton" class="footer-link">Impor</a>
+                    <a href="https://omeans-team.github.io" target="_blank" class="footer-link">OMEANS</a>
+                    <a href="https://omeans-team.github.io/#contact" target="_blank" class="footer-link">Kontak</a>
+                    <a href="https://github.com/omeans-team/todo-app/blob/main/about.md" target="_blank" class="footer-link">Tentang</a>
+                </div>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="footer-info">
+                <p>© 2024 OMEANS Team. All rights reserved.</p>
+                <p>Lead Full-Stack Developer & Game Developer based in Indonesia</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">
+        <span id="toastMessage"></span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx-charts/1.0.0/xlsx-charts.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
