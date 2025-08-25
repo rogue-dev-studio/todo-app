@@ -1,218 +1,343 @@
 # 📝 Todo List App
 
-Aplikasi Todo List sederhana dan modern yang dibuat dengan HTML, CSS, dan JavaScript. Aplikasi ini dapat diinstall sebagai PWA (Progressive Web App) dan berfungsi offline.
+[![OMEANS Team](https://img.shields.io/badge/Developed%20by-OMEANS%20Team-blue?style=for-the-badge&logo=github)](https://omeans-team.github.io)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
+[![PWA Ready](https://img.shields.io/badge/PWA-Ready-green?style=for-the-badge&logo=pwa)](https://web.dev/progressive-web-apps/)
+[![Made with Love](https://img.shields.io/badge/Made%20with-Love-red?style=for-the-badge)](https://omeans-team.github.io)
 
-![Todo App Preview](https://img.shields.io/badge/Status-Ready-brightgreen)
-![License](https://img.shields.io/badge/License-MIT-blue)
-![PWA](https://img.shields.io/badge/PWA-Ready-orange)
+> Aplikasi web modern dan responsif untuk mengelola tugas harian dengan antarmuka yang user-friendly. Dibangun dengan teknologi terdepan untuk produktivitas maksimal.
+
+## 🌟 Demo
+
+**🌐 Live Demo:** [https://omeans-team.github.io/todo-app](https://omeans-team.github.io/todo-app)
+
+**📱 PWA Support:** Install sebagai aplikasi desktop/mobile untuk pengalaman terbaik!
 
 ## ✨ Fitur Utama
 
-### 📋 Manajemen Tugas
-- **Tambah tugas baru** dengan input yang mudah
-- **Edit tugas** dengan klik tombol edit
-- **Hapus tugas** dengan animasi smooth
-- **Tandai selesai** dengan checkbox yang interaktif
-- **Character counter** untuk membatasi panjang teks
+### 🎯 Manajemen Tugas
+- **Tambah Tugas**: Input tugas baru dengan validasi karakter (maksimal 100 karakter)
+- **Edit Tugas**: Klik tombol edit (✏️) untuk mengubah teks tugas
+- **Hapus Tugas**: Klik tombol hapus (🗑️) untuk menghapus tugas
+- **Toggle Status**: Klik checkbox untuk menandai tugas selesai/belum selesai
+- **Filter Tugas**: Filter berdasarkan status (Semua, Aktif, Selesai)
 
-### 🎯 Filter & Organisasi
-- **Filter berdasarkan status**: Semua, Aktif, Selesai
-- **Statistik real-time**: Total tugas dan yang selesai
-- **Hapus massal**: Hapus semua tugas selesai atau semua tugas
-- **Urutan**: Tugas baru muncul di atas
+### 📊 Tampilan Data
+- **List View**: Tampilan daftar tradisional dengan animasi smooth
+- **Table View**: Tampilan tabel terorganisir dengan kolom sortable
+- **Pagination**: Navigasi halaman dengan kontrol jumlah item per halaman
+- **Responsive Design**: Optimal di desktop, tablet, dan mobile
 
-### 💾 Penyimpanan & Sinkronisasi
-- **Local Storage** - Data tersimpan di browser
-- **Offline support** - Bisa digunakan tanpa internet
-- **PWA ready** - Dapat diinstall di mobile
-- **Responsive design** - Optimal di semua ukuran layar
+### 📈 Statistik & Analisis
+- **Progress Bar**: Visualisasi progress keseluruhan
+- **Pie Chart**: Diagram distribusi status tugas
+- **Statistik Harian**: Data tugas hari ini dan rata-rata per hari
+- **Skor Produktivitas**: Sistem scoring berdasarkan completion rate
+- **Sidebar Statistik**: Panel statistik yang dapat dibuka/tutup
 
-### 🎨 UI/UX Modern
-- **Design yang clean** dengan gradient background
-- **Animasi smooth** untuk semua interaksi
-- **Toast notifications** untuk feedback
-- **Keyboard shortcuts** untuk power users
-- **Accessibility** - Mendukung screen reader
+### 💾 Data Management
+- **Local Storage**: Data tersimpan otomatis di browser
+- **Export Excel**: Export data ke format Excel (.xlsx)
+- **Export JSON**: Export data ke format JSON
+- **Import Data**: Import data dari file JSON
+- **Backup & Restore**: Sistem backup dan restore data
 
-## 🚀 Demo
+### 🔗 Sharing & Collaboration
+- **Web Share API**: Bagikan aplikasi ke media sosial
+- **Copy Link**: Fallback untuk browser yang tidak mendukung Web Share API
+- **PWA Support**: Install sebagai aplikasi desktop/mobile
 
-Aplikasi ini dapat diakses secara online melalui GitHub Pages:
-- **Live Demo**: [https://your-username.github.io/todo-app](https://your-username.github.io/todo-app)
+## 🚀 Quick Start
+
+### Instalasi Lokal
+
+1. **Clone Repository**
+   ```bash
+   git clone https://github.com/omeans-team/todo-app.git
+   cd todo-app
+   ```
+
+2. **Buka di Browser**
+   ```bash
+   # Menggunakan Python
+   python -m http.server 8000
+   
+   # Menggunakan Node.js
+   npx live-server
+   
+   # Menggunakan PHP
+   php -S localhost:8000
+   ```
+
+3. **Akses Aplikasi**
+   ```
+   http://localhost:8000
+   ```
+
+### Install PWA
+
+1. Buka aplikasi di browser
+2. Klik tombol "Install" di address bar
+3. Atau gunakan menu browser untuk "Add to Home Screen"
+4. Nikmati pengalaman offline!
 
 ## 🛠️ Teknologi yang Digunakan
 
-- **HTML5** - Struktur semantik
-- **CSS3** - Styling modern dengan CSS Grid, Flexbox, dan Custom Properties
-- **JavaScript ES6+** - Logika aplikasi dengan Class dan modern APIs
-- **Local Storage** - Penyimpanan data lokal
-- **Service Worker** - PWA dan offline support
-- **Web App Manifest** - Install sebagai aplikasi
+### Frontend
+- **HTML5**: Semantic markup dan accessibility
+- **CSS3**: Modern styling dengan CSS Grid dan Flexbox
+- **JavaScript ES6+**: Vanilla JavaScript dengan class-based architecture
+- **Chart.js**: Library untuk visualisasi data
+- **SheetJS**: Library untuk export/import Excel
 
-## 📱 PWA Features
+### PWA Features
+- **Service Worker**: Offline functionality dan caching
+- **Web App Manifest**: Install prompt dan app-like experience
+- **Local Storage**: Client-side data persistence
+- **Web Share API**: Native sharing capabilities
 
-Aplikasi ini mendukung Progressive Web App (PWA):
-- ✅ Dapat diinstall di mobile
-- ✅ Offline support
-- ✅ App-like experience
-- ✅ Fast loading dengan caching
-- ✅ Responsive design
+### Responsive Design
+- **Mobile First**: Design dimulai dari mobile
+- **Breakpoints**: 480px, 640px, 768px, 1024px
+- **Touch Friendly**: Optimized untuk touch devices
+- **Progressive Enhancement**: Fitur bertahap sesuai kemampuan browser
 
-## 🚀 Cara Menggunakan
-
-### 1. Menambahkan Tugas
-- Masukkan teks tugas di input field
-- Tekan Enter atau klik tombol "Tambah"
-- Tugas akan muncul di daftar
-
-### 2. Mengelola Tugas
-- **Klik checkbox** untuk menandai selesai
-- **Klik tombol edit** untuk mengubah teks
-- **Klik tombol hapus** untuk menghapus tugas
-- **Gunakan filter** untuk melihat tugas tertentu
-
-### 3. Keyboard Shortcuts
-- **Ctrl/Cmd + N** - Focus ke input field
-- **Ctrl/Cmd + F** - Reset filter ke "Semua"
-- **Enter** - Tambah/edit tugas
-- **Escape** - Cancel edit mode
-
-### 4. Manajemen Data
-- **Hapus Selesai** - Hapus semua tugas yang sudah selesai
-- **Hapus Semua** - Hapus semua tugas (dengan konfirmasi)
-
-## 🚀 Deployment ke GitHub Pages
-
-### 1. Setup Repository
-```bash
-# Clone repository
-git clone https://github.com/your-username/todo-app.git
-cd todo-app
-
-# Add files
-git add .
-git commit -m "Initial commit: Todo List App"
-git push origin main
-```
-
-### 2. Enable GitHub Pages
-1. Buka repository di GitHub
-2. Pergi ke Settings > Pages
-3. Pilih Source: "Deploy from a branch"
-4. Pilih Branch: "main"
-5. Pilih Folder: "/ (root)"
-6. Klik Save
-
-### 3. Custom Domain (Opsional)
-1. Di Settings > Pages
-2. Masukkan custom domain
-3. Tambahkan CNAME file jika diperlukan
-
-## 📁 Struktur Proyek
-
-```
-todo-app/
-├── index.html          # File utama HTML
-├── styles.css          # Styling CSS
-├── script.js           # Logika JavaScript
-├── manifest.json      # Web App Manifest
-├── README.md          # Dokumentasi
-└── .gitignore         # Git ignore rules
-```
-
-## 🔧 Development
-
-### Local Development
-```bash
-# Clone repository
-git clone https://github.com/your-username/todo-app.git
-cd todo-app
-
-# Buka dengan live server atau file://
-# Untuk testing PWA, gunakan HTTPS atau localhost
-```
+## 📱 Kompatibilitas
 
 ### Browser Support
-- ✅ Chrome 60+
-- ✅ Firefox 55+
-- ✅ Safari 11+
-- ✅ Edge 79+
-- ✅ Mobile browsers
+- **Chrome**: 60+ (Full support)
+- **Firefox**: 55+ (Full support)
+- **Safari**: 12+ (Full support)
+- **Edge**: 79+ (Full support)
+- **Mobile Browsers**: iOS Safari, Chrome Mobile, Samsung Internet
 
-## 🎯 Use Cases
+### Device Support
+- **Desktop**: Windows, macOS, Linux
+- **Tablet**: iPad, Android tablets
+- **Mobile**: iPhone, Android phones
+- **Smart TV**: Web browsers on smart TVs
 
-Aplikasi ini cocok untuk berbagai keperluan:
+## ⌨️ Keyboard Shortcuts
 
-### 🏠 Personal
-- Mengelola to-do list harian
-- Tracking progress tugas
-- Organisasi kegiatan pribadi
+| Shortcut | Action |
+|----------|--------|
+| `Ctrl/Cmd + N` | Fokus ke input tugas baru |
+| `Ctrl/Cmd + F` | Filter ke "Semua" |
+| `Ctrl/Cmd + 1` | Switch ke List View |
+| `Ctrl/Cmd + 2` | Switch ke Table View |
+| `Ctrl/Cmd + S` | Buka/tutup statistik |
+| `Ctrl/Cmd + E` | Export ke Excel |
+| `Escape` | Tutup statistik atau cancel edit |
+| `Enter` | Simpan edit atau tambah tugas baru |
 
-### 🏢 Bisnis
-- Manajemen tugas tim
-- Tracking project progress
-- Daily standup preparation
+## 📚 Dokumentasi
 
-### 🏫 Pendidikan
-- Daftar tugas kuliah
-- Tracking assignment deadlines
-- Study planning
+### Tutorial Lengkap
+Lihat file [`about.md`](./about.md) untuk tutorial penggunaan yang sangat lengkap, termasuk:
+- Panduan step-by-step untuk semua fitur
+- Tutorial import/export data
+- Tips dan trik produktivitas
+- Troubleshooting guide
 
-### 🎉 Event Planning
-- Checklist persiapan acara
-- Task delegation
-- Progress monitoring
+### API Reference
+Aplikasi menggunakan Local Storage API untuk penyimpanan data:
+```javascript
+// Menyimpan data
+localStorage.setItem('todos', JSON.stringify(todos));
 
-## 🤝 Contributing
+// Mengambil data
+const todos = JSON.parse(localStorage.getItem('todos')) || [];
+```
 
-Kontribusi sangat diterima! Berikut cara berkontribusi:
+## 🎯 Tujuan dan Manfaat
 
-1. Fork repository
-2. Buat branch fitur baru (`git checkout -b feature/AmazingFeature`)
-3. Commit perubahan (`git commit -m 'Add some AmazingFeature'`)
-4. Push ke branch (`git push origin feature/AmazingFeature`)
-5. Buat Pull Request
+### Untuk Individu
+- **Productivity**: Meningkatkan produktivitas harian
+- **Organization**: Mengorganisir tugas dengan sistematis
+- **Tracking**: Melacak progress dan achievement
+- **Motivation**: Sistem scoring untuk motivasi
 
-## 📄 License
+### Untuk Tim
+- **Collaboration**: Berbagi data melalui export/import
+- **Reporting**: Export Excel untuk laporan
+- **Consistency**: Format data yang konsisten
+- **Accessibility**: Akses dari berbagai device
 
-Proyek ini dilisensikan di bawah MIT License - lihat file [LICENSE](LICENSE) untuk detail.
+### Untuk Organisasi
+- **Data Analysis**: Analisis produktivitas tim
+- **Integration**: Import data dari sistem lain
+- **Compliance**: Backup dan audit trail
+- **Scalability**: Mendukung jumlah data besar
+
+## 🔒 Privasi dan Keamanan
+
+### Data Storage
+- **Local Only**: Data tersimpan hanya di browser pengguna
+- **No Server**: Tidak ada data yang dikirim ke server
+- **Privacy**: Data tetap milik pengguna sepenuhnya
+- **Control**: Pengguna memiliki kontrol penuh atas data
+
+### Export/Import
+- **Client-side**: Semua proses export/import di client
+- **No Upload**: Tidak ada upload data ke server
+- **Format Standard**: Menggunakan format standar (JSON, Excel)
+- **Validation**: Validasi data untuk keamanan
+
+## 🎨 Kustomisasi
+
+### Theme
+- **Color Scheme**: Skema warna yang konsisten
+- **Dark Mode**: Support untuk dark mode (future)
+- **Custom CSS**: Mudah dikustomisasi dengan CSS variables
+- **Responsive**: Adaptif terhadap preferensi sistem
+
+### Layout
+- **Flexible Grid**: Layout yang fleksibel
+- **Component-based**: Komponen yang dapat dikonfigurasi
+- **Accessibility**: Mengikuti WCAG guidelines
+- **Internationalization**: Support untuk berbagai bahasa
+
+## 🤝 Kontribusi
+
+Kami menyambut kontribusi dari komunitas! Berikut cara berkontribusi:
+
+### Cara Kontribusi
+1. **Fork** repository ini
+2. **Buat branch** untuk fitur baru (`git checkout -b feature/AmazingFeature`)
+3. **Commit** perubahan (`git commit -m 'Add some AmazingFeature'`)
+4. **Push** ke branch (`git push origin feature/AmazingFeature`)
+5. **Buat Pull Request**
+
+### Guidelines
+- Ikuti standar coding yang ada
+- Tambahkan dokumentasi untuk fitur baru
+- Test fitur sebelum submit
+- Gunakan commit message yang jelas
+
+### Report Bugs
+Jika menemukan bug, silakan:
+1. Cek [Issues](https://github.com/omeans-team/todo-app/issues) yang sudah ada
+2. Buat issue baru dengan detail yang lengkap
+3. Sertakan screenshot jika diperlukan
+
+## 📄 Lisensi
+
+### Open Source
+- **MIT License**: Lisensi permissive
+- **Free to Use**: Gratis untuk penggunaan pribadi dan komersial
+- **Attribution**: Credit untuk OMEANS Team
+- **Modification**: Bebas dimodifikasi dan didistribusikan
+
+### Contribution
+- **GitHub**: Source code tersedia di GitHub
+- **Issues**: Report bugs dan feature requests
+- **Pull Requests**: Kontribusi kode dipersilakan
+- **Documentation**: Bantuan untuk dokumentasi
+
+## 🆘 Support dan Bantuan
+
+### Dokumentasi
+- **README**: Dokumentasi lengkap ini
+- **About Page**: Tutorial lengkap di [`about.md`](./about.md)
+- **In-app Help**: Tooltip dan pesan bantuan
+- **Video Tutorial**: Tutorial video (coming soon)
+
+### Community
+- **GitHub Issues**: [Technical support](https://github.com/omeans-team/todo-app/issues)
+- **Discussions**: [Forum diskusi fitur](https://github.com/omeans-team/todo-app/discussions)
+- **Examples**: Contoh penggunaan
+- **Templates**: Template data untuk berbagai use case
+
+### Contact & Support
+
+#### 🌐 OMEANS Team
+- **Website**: [https://omeans-team.github.io](https://omeans-team.github.io)
+- **Portfolio**: [https://omeans-team.github.io](https://omeans-team.github.io)
+- **Email**: aris.hadisopiyan@gmail.com
+- **Phone**: +62 821-9927-5053
+
+#### 👨‍💻 Lead Developer
+**Aris Hadisopiyan**
+- **Role**: Lead Full-Stack Developer & Game Developer
+- **Location**: Indonesia
+- **Specialization**: Unity3D, React, Node.js, Laravel, Yii2
+- **Experience**: Expert in JavaScript, React, Next.js, TypeScript
+
+#### 🚀 Response Time
+- **Email**: Within 24 hours
+- **Phone**: Within 2 hours
+- **Social**: Within 12 hours
+- **GitHub Issues**: Within 48 hours
+
+#### 💼 Services Available
+- **Web Development**: Modern, responsive web applications
+- **Mobile Apps**: Cross-platform mobile solutions
+- **UI/UX Design**: Beautiful and intuitive interfaces
+- **Performance**: Optimized for speed and efficiency
+- **Consulting**: Technical guidance and project planning
+
+### 🆘 Troubleshooting
+
+#### Masalah Umum
+1. **Data Hilang**: Cek local storage browser
+2. **Import Error**: Pastikan format JSON valid
+3. **Export Gagal**: Cek permission download browser
+4. **Chart Error**: Refresh halaman jika chart tidak muncul
+
+#### Browser Issues
+- **Chrome**: Pastikan versi 60+
+- **Firefox**: Pastikan versi 55+
+- **Safari**: Pastikan versi 12+
+- **Mobile**: Gunakan browser terbaru
+
+#### Performance
+- **Slow Loading**: Cek koneksi internet
+- **Chart Lag**: Refresh halaman
+- **Export Slow**: Tunggu proses selesai
+
+## 🌟 Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=omeans-team/todo-app&type=Date)](https://star-history.com/#omeans-team/todo-app&Date)
+
+## 📊 Project Stats
+
+![GitHub stars](https://img.shields.io/github/stars/omeans-team/todo-app?style=social)
+![GitHub forks](https://img.shields.io/github/forks/omeans-team/todo-app?style=social)
+![GitHub issues](https://img.shields.io/github/issues/omeans-team/todo-app)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/omeans-team/todo-app)
+![GitHub license](https://img.shields.io/github/license/omeans-team/todo-app)
 
 ## 🙏 Acknowledgments
 
-- Font [Inter](https://rsms.me/inter/) dari Google Fonts
-- Icon dari emoji Unicode
-- Gradient backgrounds dari CSS gradients
-- Inspirasi dari berbagai todo app modern
-
-## 📞 Support
-
-Jika Anda memiliki pertanyaan atau masalah:
-- Buat issue di GitHub
-- Email: your-email@example.com
-- Website: https://your-website.com
-
-## 🔮 Roadmap
-
-### Fitur yang Akan Datang
-- [ ] Drag & drop untuk reorder tasks
-- [ ] Due date dan reminders
-- [ ] Categories/tags untuk tasks
-- [ ] Dark mode toggle
-- [ ] Export/import data
-- [ ] Cloud sync
-- [ ] Collaborative features
-- [ ] Voice input
-- [ ] Advanced analytics
-
-### Teknologi yang Akan Ditambahkan
-- [ ] TypeScript
-- [ ] React/Vue.js
-- [ ] Backend API
-- [ ] Database integration
-- [ ] Real-time sync
-- [ ] Push notifications
+- **OMEANS Team** - Untuk dukungan dan pengembangan
+- **Chart.js** - Library visualisasi data yang luar biasa
+- **SheetJS** - Library export Excel yang powerful
+- **GitHub** - Platform hosting yang reliable
+- **Komunitas Open Source** - Untuk inspirasi dan kontribusi
 
 ---
 
-**Dibuat dengan ❤️ untuk produktivitas yang lebih baik**
+## 🚀 Get Started
 
-*Todo List App - Kelola tugas harian Anda dengan mudah*
+**Ready to boost your productivity?** 
+
+[🌐 Try Live Demo](https://omeans-team.github.io/todo-app) | [📚 Read Tutorial](./about.md) | [🐛 Report Issue](https://github.com/omeans-team/todo-app/issues) | [💡 Request Feature](https://github.com/omeans-team/todo-app/discussions)
+
+---
+
+**Versi**: 1.0.0  
+**Update Terakhir**: Desember 2024  
+**Dikembangkan oleh**: [OMEANS Team](https://omeans-team.github.io)  
+**Lead Developer**: [Aris Hadisopiyan](https://omeans-team.github.io)
+
+*Todo List App - Mengorganisir tugas, meningkatkan produktivitas, mencapai tujuan! 🚀*
+
+---
+
+<div align="center">
+
+**Made with ❤️ by [OMEANS Team](https://omeans-team.github.io)**
+
+[![OMEANS Team](https://img.shields.io/badge/Visit-OMEANS%20Team-blue?style=for-the-badge&logo=github)](https://omeans-team.github.io)
+
+</div>
