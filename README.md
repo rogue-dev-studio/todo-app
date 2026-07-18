@@ -1,19 +1,23 @@
 # Todo App
 
-A small todo list that runs in the browser. Tasks stay on your machine; you can export to Excel if you need a spreadsheet.
+A small todo list that runs in the browser. Tasks stay on your machine; export to Excel when you need a spreadsheet.
 
-By [Aris Hadisopiyan](https://rogue-dev-studio.github.io/) / Rogue Dev Studio.
+![Screenshot](github-contents/screenshot.png)
 
-## What it does
-- Add, edit, complete, delete tasks
-- Filter and switch list/table view
+**Live demo:** [https://rogue-dev-studio.github.io/todo-app/](https://rogue-dev-studio.github.io/todo-app/)
+
+## Highlights
+- Add, edit, complete, delete
+- Filter + list/table view
 - Export Excel or JSON
 
 ## Run
-Open `index.html` (Live Server on port 5500 works fine).
+Open `index.html` locally (Live Server on port **5500**), or use the live demo above.
 
 ```bash
 git clone https://github.com/rogue-dev-studio/todo-app.git
 ```
+
+By [Aris Hadisopiyan](https://rogue-dev-studio.github.io/) / Rogue Dev Studio.
 
 MIT
