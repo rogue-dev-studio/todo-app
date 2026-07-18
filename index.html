@@ -3,25 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>📝 Todo List App</title>
+    <title>Todo App</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="theme-ink-desk.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#FF6B6B">
-    <meta name="description" content="Aplikasi Todo List sederhana dan modern untuk mengelola tugas harian">
+    <meta name="theme-color" content="#B42318">
+    <meta name="description" content="Local browser todo — capture tasks, filter status, export Excel. No account required.">
+    <style>
+      body { font-family: 'Source Sans 3', system-ui, sans-serif; }
+      .icon-svg, [data-lucide] {
+        width: 1.15em;
+        height: 1.15em;
+        stroke-width: 2;
+        vertical-align: -0.2em;
+        display: inline-block;
+      }
+      .title .icon-svg, .title [data-lucide] { width: 1.35em; height: 1.35em; }
+      .empty-icon [data-lucide] { width: 2.75rem; height: 2.75rem; opacity: 0.55; }
+      .daily-stat-icon [data-lucide] { width: 1.35rem; height: 1.35rem; }
+      .pagination-btn [data-lucide] { width: 1rem; height: 1rem; }
+    </style>
 </head>
 <body>
     <div class="container">
-        <!-- Header -->
         <header class="header">
             <h1 class="title">
-                <span class="emoji">📝</span>
-                Todo List App
+                <i data-lucide="clipboard-list" class="icon-svg" aria-hidden="true"></i>
+                Todo App
             </h1>
-            <p class="subtitle">Kelola tugas harian Anda dengan mudah</p>
+            <p class="subtitle">Tasks stay on this device. Export when you need a sheet.</p>
         </header>
 
-        <!-- Input Section -->
         <div class="input-section">
             <div class="input-group">
                 <input 
@@ -41,19 +54,18 @@
             </div>
         </div>
 
-        <!-- Filter Section -->
         <div class="filter-section">
             <div class="filter-buttons">
                 <button class="filter-btn active" data-filter="all">
-                    <span class="filter-icon">📋</span>
+                    <i data-lucide="list" class="filter-icon icon-svg" aria-hidden="true"></i>
                     Semua
                 </button>
                 <button class="filter-btn" data-filter="active">
-                    <span class="filter-icon">⏳</span>
+                    <i data-lucide="clock" class="filter-icon icon-svg" aria-hidden="true"></i>
                     Aktif
                 </button>
                 <button class="filter-btn" data-filter="completed">
-                    <span class="filter-icon">✅</span>
+                    <i data-lucide="circle-check" class="filter-icon icon-svg" aria-hidden="true"></i>
                     Selesai
                 </button>
             </div>
@@ -63,33 +75,30 @@
             </div>
         </div>
 
-        <!-- Statistics Sidebar Toggle -->
         <div class="stats-toggle-container">
             <button id="statsToggle" class="stats-toggle-btn">
-                <span class="toggle-icon">📊</span>
+                <i data-lucide="bar-chart-3" class="toggle-icon icon-svg" aria-hidden="true"></i>
                 <span class="toggle-text">Statistik</span>
             </button>
         </div>
 
-        <!-- Statistics Sidebar -->
         <div class="statistics-sidebar" id="statisticsSidebar">
             <div class="sidebar-header">
-                <h3>📊 Statistik Tugas</h3>
-                <button id="closeStats" class="close-stats-btn">
-                    <span>✕</span>
+                <h3><i data-lucide="bar-chart-3" class="icon-svg" aria-hidden="true"></i> Statistik Tugas</h3>
+                <button id="closeStats" class="close-stats-btn" aria-label="Tutup">
+                    <i data-lucide="x" class="icon-svg" aria-hidden="true"></i>
                 </button>
             </div>
             
             <div class="sidebar-content">
                 <div class="stats-actions">
                     <button id="exportStats" class="export-stats-btn">
-                        <span class="export-icon">📈</span>
+                        <i data-lucide="trending-up" class="export-icon icon-svg" aria-hidden="true"></i>
                         Export Statistik
                     </button>
                 </div>
                 
                 <div class="stats-grid">
-                    <!-- Progress Chart -->
                     <div class="stats-card">
                         <div class="stats-card-header">
                             <h4>Progress Keseluruhan</h4>
@@ -112,7 +121,6 @@
                         </div>
                     </div>
 
-                    <!-- Pie Chart -->
                     <div class="stats-card">
                         <div class="stats-card-header">
                             <h4>Distribusi Status</h4>
@@ -134,28 +142,27 @@
                         </div>
                     </div>
 
-                    <!-- Daily Stats -->
                     <div class="stats-card">
                         <div class="stats-card-header">
                             <h4>Statistik Harian</h4>
                         </div>
                         <div class="daily-stats">
                             <div class="daily-stat-item">
-                                <div class="daily-stat-icon">📅</div>
+                                <div class="daily-stat-icon"><i data-lucide="calendar" aria-hidden="true"></i></div>
                                 <div class="daily-stat-info">
                                     <span class="daily-stat-label">Hari Ini</span>
                                     <span class="daily-stat-value" id="todayTasks">0</span>
                                 </div>
                             </div>
                             <div class="daily-stat-item">
-                                <div class="daily-stat-icon">✅</div>
+                                <div class="daily-stat-icon"><i data-lucide="circle-check" aria-hidden="true"></i></div>
                                 <div class="daily-stat-info">
                                     <span class="daily-stat-label">Selesai Hari Ini</span>
                                     <span class="daily-stat-value" id="todayCompleted">0</span>
                                 </div>
                             </div>
                             <div class="daily-stat-item">
-                                <div class="daily-stat-icon">📈</div>
+                                <div class="daily-stat-icon"><i data-lucide="trending-up" aria-hidden="true"></i></div>
                                 <div class="daily-stat-info">
                                     <span class="daily-stat-label">Rata-rata per Hari</span>
                                     <span class="daily-stat-value" id="avgPerDay">0</span>
@@ -164,7 +171,6 @@
                         </div>
                     </div>
 
-                    <!-- Productivity Score -->
                     <div class="stats-card">
                         <div class="stats-card-header">
                             <h4>Skor Produktivitas</h4>
@@ -183,10 +189,8 @@
             </div>
         </div>
 
-        <!-- Sidebar Overlay -->
         <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
-        <!-- Table Controls -->
         <div class="table-controls">
             <div class="items-per-page">
                 <label for="itemsPerPage">Tampilkan:</label>
@@ -201,31 +205,25 @@
             </div>
             <div class="view-toggle">
                 <button id="listViewBtn" class="view-btn active" data-view="list">
-                    <span class="view-icon">📋</span>
+                    <i data-lucide="list" class="view-icon icon-svg" aria-hidden="true"></i>
                     List
                 </button>
                 <button id="tableViewBtn" class="view-btn" data-view="table">
-                    <span class="view-icon">📊</span>
+                    <i data-lucide="table" class="view-icon icon-svg" aria-hidden="true"></i>
                     Table
                 </button>
             </div>
         </div>
 
-        <!-- Todo List View -->
         <div id="listView" class="todo-list-container">
-            <ul id="todoList" class="todo-list">
-                <!-- Todo items will be added here -->
-            </ul>
-            
-            <!-- Empty State -->
+            <ul id="todoList" class="todo-list"></ul>
             <div id="emptyState" class="empty-state">
-                <div class="empty-icon">📝</div>
+                <div class="empty-icon"><i data-lucide="clipboard-list" aria-hidden="true"></i></div>
                 <h3>Tidak ada tugas</h3>
                 <p>Tambahkan tugas pertama Anda untuk memulai!</p>
             </div>
         </div>
 
-        <!-- Todo Table View -->
         <div id="tableView" class="todo-table-container" style="display: none;">
             <div class="table-wrapper">
                 <table class="todo-table">
@@ -241,96 +239,83 @@
                             <th class="th-actions">Aksi</th>
                         </tr>
                     </thead>
-                    <tbody id="todoTableBody">
-                        <!-- Table rows will be added here -->
-                    </tbody>
+                    <tbody id="todoTableBody"></tbody>
                 </table>
             </div>
-            
-            <!-- Table Empty State -->
             <div id="tableEmptyState" class="empty-state" style="display: none;">
-                <div class="empty-icon">📊</div>
+                <div class="empty-icon"><i data-lucide="table" aria-hidden="true"></i></div>
                 <h3>Tidak ada data</h3>
                 <p>Tambahkan tugas untuk melihat tabel!</p>
             </div>
         </div>
 
-        <!-- Pagination -->
         <div class="pagination-container">
             <div class="pagination-info">
                 <span id="paginationInfo">Menampilkan 0 dari 0 item</span>
             </div>
             <div class="pagination-controls">
-                <button id="firstPage" class="pagination-btn" disabled>
-                    <span>⏮️</span>
+                <button id="firstPage" class="pagination-btn" disabled aria-label="Halaman pertama">
+                    <i data-lucide="chevrons-left" aria-hidden="true"></i>
                 </button>
-                <button id="prevPage" class="pagination-btn" disabled>
-                    <span>◀️</span>
+                <button id="prevPage" class="pagination-btn" disabled aria-label="Sebelumnya">
+                    <i data-lucide="chevron-left" aria-hidden="true"></i>
                 </button>
-                <div class="page-numbers" id="pageNumbers">
-                    <!-- Page numbers will be added here -->
-                </div>
-                <button id="nextPage" class="pagination-btn" disabled>
-                    <span>▶️</span>
+                <div class="page-numbers" id="pageNumbers"></div>
+                <button id="nextPage" class="pagination-btn" disabled aria-label="Berikutnya">
+                    <i data-lucide="chevron-right" aria-hidden="true"></i>
                 </button>
-                <button id="lastPage" class="pagination-btn" disabled>
-                    <span>⏭️</span>
+                <button id="lastPage" class="pagination-btn" disabled aria-label="Halaman terakhir">
+                    <i data-lucide="chevrons-right" aria-hidden="true"></i>
                 </button>
             </div>
         </div>
 
-        <!-- Actions Section -->
         <div class="actions-section">
             <button id="exportExcel" class="action-btn success">
-                <span class="action-icon">📊</span>
+                <i data-lucide="file-spreadsheet" class="action-icon icon-svg" aria-hidden="true"></i>
                 Export Excel
             </button>
             <button id="clearCompleted" class="action-btn secondary">
-                <span class="action-icon">🗑️</span>
+                <i data-lucide="trash-2" class="action-icon icon-svg" aria-hidden="true"></i>
                 Hapus Selesai
             </button>
             <button id="clearAll" class="action-btn danger">
-                <span class="action-icon">🗑️</span>
+                <i data-lucide="trash-2" class="action-icon icon-svg" aria-hidden="true"></i>
                 Hapus Semua
             </button>
         </div>
 
-        <!-- Footer -->
         <footer class="footer">
             <div class="footer-content">
                 <div class="footer-main">
-                    <p>Dibuat dengan ❤️ menggunakan HTML, CSS, dan JavaScript</p>
+                    <p>Alat lokal oleh Rogue Dev Studio</p>
                     <div class="footer-credits">
-                        <p>Powered by <a href="https://omeans-team.github.io" target="_blank" class="omeans-link">OMEANS Team</a></p>
-                        <p>Developed by <a href="https://omeans-team.github.io" target="_blank" class="developer-link">Aris Hadisopiyan</a></p>
+                        <p><a href="https://rogue-dev-studio.github.io/" target="_blank" rel="noopener" class="studio-link">Rogue Dev Studio</a> · <a href="https://rogue-dev-studio.github.io/" target="_blank" rel="noopener" class="developer-link">Aris Hadisopiyan</a></p>
                     </div>
                 </div>
                 <div class="footer-links">
                     <a href="#" id="shareButton" class="footer-link">Bagikan</a>
                     <a href="#" id="exportButton" class="footer-link">Ekspor</a>
                     <a href="#" id="importButton" class="footer-link">Impor</a>
-                    <a href="https://omeans-team.github.io" target="_blank" class="footer-link">OMEANS</a>
-                    <a href="https://omeans-team.github.io/#contact" target="_blank" class="footer-link">Kontak</a>
-                    <a href="https://github.com/omeans-team/todo-app/blob/main/about.md" target="_blank" class="footer-link">Tentang</a>
+                    <a href="https://rogue-dev-studio.github.io/" target="_blank" rel="noopener" class="footer-link">Studio</a>
+                    <a href="https://github.com/rogue-dev-studio/todo-app" target="_blank" rel="noopener" class="footer-link">Kode sumber</a>
                 </div>
             </div>
             <div class="footer-divider"></div>
             <div class="footer-info">
-                <p>© 2024 OMEANS Team. All rights reserved.</p>
-                <p>Lead Full-Stack Developer & Game Developer based in Indonesia</p>
+                <p>&copy; 2026 Rogue Dev Studio</p>
             </div>
         </footer>
     </div>
 
-    <!-- Toast Notification -->
     <div id="toast" class="toast">
         <span id="toastMessage"></span>
     </div>
 
-    <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx-charts/1.0.0/xlsx-charts.min.js"></script>
+    <script src="https://unpkg.com/lucide@0.460.0"></script>
     <script src="script.js"></script>
+    <script>if (window.lucide) lucide.createIcons();</script>
 </body>
 </html>

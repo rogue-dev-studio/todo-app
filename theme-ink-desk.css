@@ -1,0 +1,132 @@
+/* Ink Desk — todo-app anti-AI theme (UI/UX: design/static-fun-visual-guide.md) */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;700&family=Source+Sans+3:wght@400;500;600;700&display=swap');
+
+:root {
+    --primary-color: #B42318;
+    --primary-hover: #912018;
+    --secondary-color: #FFFCF7;
+    --accent-color: #3F3A34;
+    --accent-hover: #1C1917;
+    --warm-color: #E8DFD0;
+    --warm-hover: #D6D0C4;
+    --soft-color: #F3EEE4;
+    --soft-hover: #E8DFD0;
+    --lavender-color: #5C5650;
+    --lavender-hover: #3F3A34;
+    --peach-color: #D6D0C4;
+    --peach-hover: #C4BDB0;
+
+    --text-primary: #1C1917;
+    --text-secondary: #57534E;
+    --text-muted: #78716C;
+    --text-light: #FFFCF7;
+
+    --border-color: #D6D0C4;
+    --border-light: #E8DFD0;
+
+    --success-color: #3F5E4A;
+    --success-hover: #2F4638;
+    --danger-color: #B42318;
+    --danger-hover: #912018;
+    --warning-color: #A16207;
+    --warning-hover: #854D0E;
+    --info-color: #3F3A34;
+    --info-hover: #1C1917;
+
+    --shadow-sm: none;
+    --shadow-md: none;
+    --shadow-lg: none;
+    --shadow-xl: none;
+
+    --radius-sm: 4px;
+    --radius-md: 6px;
+    --radius-lg: 8px;
+    --radius-xl: 10px;
+}
+
+body {
+    font-family: 'Source Sans 3', Georgia, serif !important;
+    background:
+        radial-gradient(ellipse at top, rgba(180, 35, 24, 0.06), transparent 45%),
+        var(--soft-color) !important;
+    color: var(--text-primary);
+}
+
+.title,
+.header h1,
+.sidebar-header h3,
+.empty-state h3 {
+    font-family: 'Fraunces', Georgia, serif !important;
+    letter-spacing: -0.02em;
+    font-weight: 700;
+}
+
+.subtitle {
+    color: var(--text-secondary) !important;
+    font-weight: 400;
+}
+
+.input-section,
+.filter-section,
+.todo-list-container,
+.todo-table-container,
+.actions-section,
+.table-controls,
+.pagination-container,
+.stats-card,
+.statistics-sidebar {
+    background: var(--secondary-color) !important;
+    border: 1px solid var(--border-color) !important;
+    box-shadow: none !important;
+}
+
+.add-btn,
+.action-btn.success,
+.filter-btn.active,
+.view-btn.active,
+.stats-toggle-btn {
+    background: var(--primary-color) !important;
+    color: var(--text-light) !important;
+    border: 1px solid var(--primary-hover) !important;
+    border-radius: var(--radius-md) !important;
+    box-shadow: none !important;
+}
+
+.filter-btn,
+.view-btn,
+.action-btn.secondary,
+.pagination-btn {
+    background: transparent !important;
+    color: var(--text-primary) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: var(--radius-md) !important;
+}
+
+.action-btn.danger {
+    background: transparent !important;
+    color: var(--danger-color) !important;
+    border: 1px solid var(--danger-color) !important;
+}
+
+.todo-input,
+.items-select,
+.todo-edit-input {
+    border: 1px solid var(--border-color) !important;
+    background: #fff !important;
+    border-radius: var(--radius-md) !important;
+    box-shadow: none !important;
+}
+
+.todo-input:focus {
+    outline: 2px solid rgba(180, 35, 24, 0.35);
+    border-color: var(--primary-color) !important;
+}
+
+.footer {
+    border-top: 1px solid var(--border-color);
+    color: var(--text-muted);
+}
+
+.footer a {
+    color: var(--text-primary);
+}
