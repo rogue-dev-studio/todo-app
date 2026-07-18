@@ -394,6 +394,9 @@ class TodoApp {
         
         this.renderPagination(filteredTodos.length);
         this.updateStatistics();
+        if (window.lucide && typeof lucide.createIcons === 'function') {
+            lucide.createIcons();
+        }
     }
 
     renderListView(todos, totalCount) {
@@ -488,11 +491,11 @@ class TodoApp {
                             maxlength="100"
                         >
                         <div class="edit-actions">
-                            <button class="todo-btn save-btn" onclick="todoApp.saveEdit(${todo.id})">
-                                <span>💾</span>
+                            <button class="todo-btn save-btn" onclick="todoApp.saveEdit(${todo.id})" title="Simpan">
+                                <i data-lucide="save" aria-hidden="true"></i>
                             </button>
-                            <button class="todo-btn cancel-btn" onclick="todoApp.cancelEdit()">
-                                <span>❌</span>
+                            <button class="todo-btn cancel-btn" onclick="todoApp.cancelEdit()" title="Batal">
+                                <i data-lucide="x" aria-hidden="true"></i>
                             </button>
                         </div>
                     </div>
@@ -506,10 +509,10 @@ class TodoApp {
                 <span class="todo-text">${this.escapeHtml(todo.text)}</span>
                 <div class="todo-actions">
                     <button class="todo-btn edit" onclick="todoApp.editTodo(${todo.id})" title="Edit">
-                        <span>✏️</span>
+                        <i data-lucide="pencil" aria-hidden="true"></i>
                     </button>
                     <button class="todo-btn delete" onclick="todoApp.deleteTodo(${todo.id})" title="Hapus">
-                        <span>🗑️</span>
+                        <i data-lucide="trash-2" aria-hidden="true"></i>
                     </button>
                 </div>
             </li>
@@ -546,10 +549,10 @@ class TodoApp {
                 <td class="td-actions">
                     <div class="table-actions">
                         <button class="table-btn edit" onclick="todoApp.editTodo(${todo.id})" title="Edit">
-                            <span>✏️</span>
+                            <i data-lucide="pencil" aria-hidden="true"></i>
                         </button>
                         <button class="table-btn delete" onclick="todoApp.deleteTodo(${todo.id})" title="Hapus">
-                            <span>🗑️</span>
+                            <i data-lucide="trash-2" aria-hidden="true"></i>
                         </button>
                     </div>
                 </td>
@@ -768,19 +771,19 @@ class TodoApp {
             
             if (completionRate >= 80) {
                 score = 100;
-                description = 'Excellent! Anda sangat produktif! 🎉';
+                description = 'Excellent! Anda sangat produktif.';
             } else if (completionRate >= 60) {
                 score = 80;
-                description = 'Bagus! Anda cukup produktif! 👍';
+                description = 'Bagus! Anda cukup produktif.';
             } else if (completionRate >= 40) {
                 score = 60;
-                description = 'Cukup baik, bisa ditingkatkan lagi! 💪';
+                description = 'Cukup baik, bisa ditingkatkan lagi.';
             } else if (completionRate >= 20) {
                 score = 40;
-                description = 'Perlu lebih banyak usaha! 🔥';
+                description = 'Perlu lebih banyak usaha.';
             } else {
                 score = 20;
-                description = 'Mulai dari yang kecil, step by step! 🌱';
+                description = 'Mulai dari yang kecil, step by step.';
             }
         }
         
@@ -1275,7 +1278,7 @@ document.addEventListener('DOMContentLoaded', () => {
             { id: 2, text: 'Klik checkbox untuk menandai selesai', completed: true, createdAt: new Date().toISOString() },
             { id: 3, text: 'Gunakan tombol edit untuk mengubah tugas', completed: false, createdAt: new Date().toISOString() },
             { id: 4, text: 'Filter tugas berdasarkan status', completed: false, createdAt: new Date().toISOString() },
-            { id: 5, text: 'Export ke Excel dengan tombol 📊', completed: false, createdAt: new Date().toISOString() },
+            { id: 5, text: 'Export ke Excel dengan tombol Export', completed: false, createdAt: new Date().toISOString() },
             { id: 6, text: 'Gunakan tabel view untuk tampilan yang lebih terorganisir', completed: false, createdAt: new Date().toISOString() },
             { id: 7, text: 'Atur jumlah item per halaman dengan dropdown', completed: false, createdAt: new Date().toISOString() },
             { id: 8, text: 'Navigasi antar halaman dengan pagination', completed: false, createdAt: new Date().toISOString() },
